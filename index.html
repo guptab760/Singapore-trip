@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Singapore Family Trip 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">22–29 DECEMBER 2026 · 2 ADULTS + 1 CHILD</p>
+      <h1>Singapore Family Trip</h1>
+      <p class="subtitle">7 nights · ₹4.5 lakh target · itinerary + live expense tracker</p>
+    </div>
+    <div class="hero-actions">
+      <button class="secondary" id="exportBtn">Export Data</button>
+      <label class="secondary file-btn">Import Data<input type="file" id="importFile" accept="application/json" hidden></label>
+      <button class="primary" id="resetBtn">Reset Trip</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="dashboard grid-4">
+  <article class="stat"><span>Total Budget</span><strong id="budgetStat">₹4,50,000</strong><small>Trip target</small></article>
+  <article class="stat"><span>Committed</span><strong id="committedStat">₹3,65,000</strong><small>Flights + hotel</small></article>
+  <article class="stat"><span>Expenses Added</span><strong id="spentStat">₹0</strong><small>Actual spend</small></article>
+  <article class="stat"><span>Remaining</span><strong id="remainingStat">₹85,000</strong><small>Available after committed costs</small></article>
+</section>
+
+<section class="progress-card">
+  <div class="section-head"><div><h2>Budget health</h2><p>Keep the full trip within ₹4.5 lakh.</p></div><strong id="progressText">0% used</strong></div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="budget-row"><span>Committed + actual expenses</span><strong id="totalUsed">₹3,65,000</strong></div>
+</section>
+
+<section class="quick-grid">
+  <button class="quick" data-scroll="expenseSection"><b>＋ Add expense</b><span>Food, transport, tickets, shopping…</span></button>
+  <button class="quick" data-scroll="itinerarySection"><b>View itinerary</b><span>Day-by-day family plan</span></button>
+  <button class="quick" data-scroll="summarySection"><b>Expense summary</b><span>See spending by category</span></button>
+</section>
+
+<section id="expenseSection" class="panel">
+  <div class="section-head"><div><h2>Expense tracker</h2><p>Actual expenses are saved in your browser automatically.</p></div></div>
+  <form id="expenseForm" class="expense-form">
+    <div><label>Date</label><input type="date" id="expenseDate" required></div>
+    <div><label>Category</label><select id="expenseCategory" required></select></div>
+    <div><label>Description</label><input id="expenseDesc" placeholder="e.g. MRT / lunch / USS tickets" required></div>
+    <div><label>Amount (₹)</label><input type="number" id="expenseAmount" min="0" step="1" placeholder="1500" required></div>
+    <div><label>Day</label><select id="expenseDay"></select></div>
+    <button class="primary add-btn">Add Expense</button>
+  </form>
+  <div class="table-wrap"><table><thead><tr><th>Date</th><th>Day</th><th>Category</th><th>Description</th><th>Amount</th><th></th></tr></thead><tbody id="expenseTable"></tbody></table></div>
+  <div id="emptyExpenses" class="empty">No actual expenses added yet.</div>
+</section>
+
+<section id="summarySection" class="panel">
+  <div class="section-head"><div><h2>Budget breakdown</h2><p>Committed costs are preloaded; actual costs come from your entries.</p></div></div>
+  <div id="categorySummary" class="summary-list"></div>
+</section>
+
+<section id="itinerarySection" class="panel">
+  <div class="section-head"><div><h2>Detailed itinerary</h2><p>Tap a day to expand it. Costs shown are planning allowances, not live ticket prices.</p></div></div>
+  <div id="itinerary"></div>
+</section>
+
+<section class="panel notes">
+  <h2>Trip planning notes</h2>
+  <ul>
+    <li>Flights: ₹1,65,000 — already committed.</li>
+    <li>Hotel: ₹2,00,000 for 22–29 December — already committed.</li>
+    <li>Remaining planning envelope: ₹85,000.</li>
+    <li>Prioritize Universal Studios, Gardens by the Bay/Christmas Wonderland, Zoo, Sentosa and Jewel.</li>
+    <li>Use MRT/bus as the default and occasional Grab/taxi when it saves time with luggage or a child.</li>
+  </ul>
+</section>
+</main>
+<footer>Singapore Family Trip Planner · Data stays in this browser unless you export it.</footer>
+<script src="app.js"></script>
+</body>
+</html>
